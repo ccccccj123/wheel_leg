@@ -1,0 +1,24 @@
+/*
+ * File: out_lqr_k_data.h
+ *
+ * MATLAB Coder version            : 5.3
+ * C/C++ source code generated on  : 10-Apr-2024 09:54:10
+ */
+
+#ifndef OUT_LQR_K_DATA_H
+#define OUT_LQR_K_DATA_H
+
+/* Include Files */
+#include "rtwtypes.h"
+#include <stddef.h>
+#include <stdlib.h>
+
+/* Variable Declarations */
+extern boolean_T isInitialized_out_lqr_k;
+
+#endif
+/*
+ * File trailer for out_lqr_k_data.h
+ *
+ * [EOF]
+ */

@@ -1,0 +1,136 @@
+cmake_minimum_required(VERSION 4.2)
+project(C6T6_AS5600 C)
+
+set(CMAKE_C_STANDARD 11)
+
+include_directories(Core/Inc)
+include_directories(Drivers/CMSIS)
+include_directories(Drivers/CMSIS/Device)
+include_directories(Drivers/CMSIS/Device/ST)
+include_directories(Drivers/CMSIS/Device/ST/STM32F1xx)
+include_directories(Drivers/CMSIS/Device/ST/STM32F1xx/Include)
+include_directories(Drivers/CMSIS/Include)
+include_directories(Drivers/STM32F1xx_HAL_Driver/Inc)
+include_directories(Drivers/STM32F1xx_HAL_Driver/Inc/Legacy)
+include_directories(MDK-ARM)
+include_directories(MDK-ARM/RTE)
+include_directories(MDK-ARM/RTE/_C6T6_AS5600)
+include_directories(Motor)
+include_directories(SimpleFOC)
+
+add_executable(C6T6_AS5600
+        Core/Inc/can.h
+        Core/Inc/dma.h
+        Core/Inc/gpio.h
+        Core/Inc/i2c.h
+        Core/Inc/main.h
+        Core/Inc/stm32_assert.h
+        Core/Inc/stm32f1xx_hal_conf.h
+        Core/Inc/stm32f1xx_it.h
+        Core/Inc/tim.h
+        Core/Inc/usart.h
+        Core/Src/can.c
+        Core/Src/dma.c
+        Core/Src/gpio.c
+        Core/Src/i2c.c
+        Core/Src/main.c
+        Core/Src/stm32f1xx_hal_msp.c
+        Core/Src/stm32f1xx_it.c
+        Core/Src/system_stm32f1xx.c
+        Core/Src/tim.c
+        Core/Src/usart.c
+        Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103x6.h
+        Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
+        Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
+        Drivers/CMSIS/Include/cmsis_armcc.h
+        Drivers/CMSIS/Include/cmsis_armclang.h
+        Drivers/CMSIS/Include/cmsis_compiler.h
+        Drivers/CMSIS/Include/cmsis_gcc.h
+        Drivers/CMSIS/Include/cmsis_iccarm.h
+        Drivers/CMSIS/Include/cmsis_version.h
+        Drivers/CMSIS/Include/core_armv8mbl.h
+        Drivers/CMSIS/Include/core_armv8mml.h
+        Drivers/CMSIS/Include/core_cm0.h
+        Drivers/CMSIS/Include/core_cm0plus.h
+        Drivers/CMSIS/Include/core_cm1.h
+        Drivers/CMSIS/Include/core_cm23.h
+        Drivers/CMSIS/Include/core_cm3.h
+        Drivers/CMSIS/Include/core_cm33.h
+        Drivers/CMSIS/Include/core_cm4.h
+        Drivers/CMSIS/Include/core_cm7.h
+        Drivers/CMSIS/Include/core_sc000.h
+        Drivers/CMSIS/Include/core_sc300.h
+        Drivers/CMSIS/Include/mpu_armv7.h
+        Drivers/CMSIS/Include/mpu_armv8.h
+        Drivers/CMSIS/Include/tz_context.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_can.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_cortex.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_dma.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_gpio.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_i2c.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_pwr.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_system.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_tim.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h
+        Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_utils.h
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_can.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c
+        Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c
+        MDK-ARM/RTE/_C6T6_AS5600/RTE_Components.h
+        Motor/Beep.c
+        Motor/Beep.h
+        Motor/FlashStorage.c
+        Motor/FlashStorage.h
+        Motor/mission_can.c
+        Motor/mission_can.h
+        Motor/mission_loop.c
+        Motor/mission_loop.h
+        Motor/mission_uart.c
+        Motor/mission_uart.h
+        Motor/SimpleKalman.c
+        Motor/SimpleKalman.h
+        SimpleFOC/as5600.c
+        SimpleFOC/as5600.h
+        SimpleFOC/BLDCMotor.c
+        SimpleFOC/BLDCMotor.h
+        SimpleFOC/foc_utils.c
+        SimpleFOC/foc_utils.h
+        SimpleFOC/FOCMotor.c
+        SimpleFOC/FOCMotor.h)
